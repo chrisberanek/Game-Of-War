@@ -158,3 +158,79 @@ class Game {
     } 
 
 } 
+  
+ checkGame() { 
+
+        if (this.players[0].hand.length === 0) { 
+
+            this.winnerMessage(this.players[1].name) 
+
+        } else if (this.players[1].hand.length === 0) { 
+
+            this.winnerMessage(this.players[0].name) 
+
+        } else { 
+
+            this.startRound(); 
+
+        } 
+
+    } 
+
+  
+
+    winnerMessage(player) { 
+
+        console.log(`Congratulations, ${player}!\n\n You've won the battle, but have you won the war?\n\n Click on 'New Game' to find out!`) 
+
+    } 
+
+  
+
+    startWar() { 
+
+        // if (this.players[0].hand.length < 4) { 
+
+        //     this.winnerMessage(this.players[1].name) 
+
+        // } else if (this.players[1].hand.length < 4) { 
+
+        //     this.winnerMessage(this.players[0].name) 
+
+        // } else { 
+
+            for (let i = 0; i < 3; i++) { 
+
+                if (i >= this.players[0].hand.length - 1){ 
+
+                } else{ 
+
+                    this.warPile.unshift(this.players[0].hand[0]); 
+
+                    this.players[0].hand.shift() 
+
+                } 
+
+            }    
+
+            for (let i = 0; i < 3; i++) { 
+
+                if (i >= this.players[1].hand.length - 1){ 
+
+                } else{ 
+
+                    this.warPile.unshift(this.players[1].hand[0]); 
+
+                    this.players[1].hand.shift() 
+
+                } 
+
+            } 
+
+            console.log("I\nDe-\nclare\nWar!"); 
+
+            this.flipCards(); 
+
+        } 
+
+} 
