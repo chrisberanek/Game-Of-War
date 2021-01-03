@@ -34,46 +34,20 @@ class Card {
             } 
         }    
     } 
-//create a new deck instance named "newDeck" and start the game
-  
-
 
 //  Shuffle Deck if required - computer does this by default when code is initialized
    
-/*
-    shuffleDeck() {
-       let location1, location2, tmp;
-       for (let i = 0; i < 1000; i++) {
-           location1 = Math.floor((Math.random() * this.cards.length));
-           location2 = Math.floor((Math.random() * this.cards.length));
-           tmp = this.cards[location1];
-           this.cards[location1] = this.cards[location2];
-           this.cards[location2] = tmp;
-        }
-    }   
 
+  //math.floor function
 
-class Player {
-    constructor(name) {
-        this.playerName = name;
-        this.playerCards = [];
-    }
-}
-
-class Board {
-    constructor() {
-        this.cardsInMiddle = [];
-        this.players = [];
-    }
-    start(playerOneName, playerTwoName) {
-        this.players.push(new Player(playerOneName));
-        this.players.push(new Player(playerTwoName));
-        let d = new Deck();
-        d.createDeck();
-        d.shuffleDeck();    
-        this.players[0].playerCards = d.cards.slice(0, 26);
-        this.players[1].playerCards = d.cards.slice(26, 52);
-    }
-} 
-*/  
+    shuffle = () => { 
+        for (let i = this.length - 1; i > 0; i--) { 
+            let j = Math.floor(Math.random() * (i + 1)); 
+            let holder = this.cards[i]; 
+            this.cards[i] = this.cards[j]; 
+            this.cards[j] = holder; 
+        }     
+    } 
+}  
+  
   
