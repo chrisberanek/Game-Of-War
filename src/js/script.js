@@ -111,3 +111,50 @@ class Game {
         this.compareRank(); 
 
     }   
+    collectCards(a,b) { 
+
+        this.players[a].hand.push(...this.warPile); 
+
+        this.players[a].hand.push(...this.players[a].cardsInPlay, ...this.players[b].cardsInPlay); 
+
+        this.players[a].cardsInPlay = [] 
+
+        this.players[b].cardsInPlay = [] 
+
+        this.warPile = []; 
+
+        console.log(`${this.players[a].name} wins Round ${this.round}! \n\n  ${this.players[a].name}: ${this.players[a].hand.length} Cards \n  ${this.players[b].name}: ${this.players[b].hand.length} cards`) 
+
+        this.checkGame() 
+
+    } 
+
+    compareRank() { 
+
+        if (this.players[0].cardsInPlay[0].score > this.players[1].cardsInPlay[0].score) { 
+
+            this.collectCards(0,1); 
+
+        } else if (this.players[0].cardsInPlay[0].score < this.players[1].cardsInPlay[0].score) { 
+
+            this.collectCards(1,0) 
+
+        } else { 
+
+            if (this.players[0].hand.length === 0) { 
+
+                this.endOfGame(this.players[1].name) 
+
+            } else if (this.players[1].hand.length === 0) { 
+
+                this.endofGame(this.players[0].name) 
+
+            } else { 
+
+            this.startWar(); 
+
+        } 
+
+    } 
+
+} 
