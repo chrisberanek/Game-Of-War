@@ -164,3 +164,11 @@ newGame = () => {
     game.deck.shuffle();
     game.deal();
  }
+
+// display results in html
+//function displayResult(result) {
+//    document.querySelector('h1')?.remove();              
+//    const resultText = document.createElement('h1');
+//    resultText.innerText = result;
+//    document.body.appendChild(resultText);
+//}
